@@ -1,0 +1,48 @@
+.heading-1 {
+    font-size: 5rem;
+    position: relative;
+
+    &::before {
+        content: "\002A";
+        color: $color-two;
+        position: absolute;
+        top: -1rem;
+        left: -2.5rem;
+    }
+
+}
+.heading-2 {
+    font-size: 3rem;
+    font-weight: 300;
+    
+
+}
+
+.heading-3 {
+    font-size: 2rem;
+}
+
+.heading {
+    &__box {
+        display: grid;
+        justify-self: center;
+        cursor: pointer;
+
+
+        &--dog{
+            
+            @include translationBox;
+            
+            &:hover + .heading__box--human{
+                opacity:1;
+            }
+            &:hover {
+                opacity: 0;
+            }
+        }
+
+        &--human {
+            @include translatedBox;
+        }
+    }
+}

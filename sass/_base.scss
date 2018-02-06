@@ -1,0 +1,83 @@
+/*Variables */
+
+$color-one: #008BBA;
+$color-two: #85C4B9;
+$color-three: #D0C91F;
+$color-four:#DC403B;
+$color-five:#DF514C;
+
+$color-text: #474747;
+
+$shadow-one: 0 1rem 2rem rgba(0,0,0,.2);
+$shadow-two: 0 .5rem 1rem rgba(0,0,0,.2);
+$shadow-three: 0 .5rem 2rem rgba(0,0,0,.5);
+$shadow-four: 0 .5rem 2rem rgba(0,0,0,.4); 
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+body {
+    color: $color-text;
+    font-weight: 300;
+    line-height: 1.6;
+    font-family: "Lato", sans-serif;
+}
+
+
+
+.container {
+    display: grid;
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    
+}
+
+@mixin table {
+    display: grid;
+    grid-gap: 2rem;
+    padding: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@mixin translatedBox {
+    
+    opacity:0;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    transition: all .2s;
+}
+
+
+@mixin translationBox{
+    z-index: 1;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    opacity: 1;
+    transition: all .2s;
+}
+
+@mixin menuBtn{
+    transition: all .2s;
+    opacity: 1;
+    visibility: visible;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}

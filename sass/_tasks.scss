@@ -1,0 +1,318 @@
+.task {
+    grid-column: full-start / full-end;
+
+    &__one{
+        display: grid;
+        grid-template-columns: min-content 1fr;
+
+        &--bg {
+            height: 80rem;
+            width: auto;
+            margin-left: 10rem;
+            transform: translateY(-10rem);
+        }
+    }
+    
+
+    &__box {
+        align-self: start;
+
+        margin: 20rem auto;
+        padding: 3rem;
+        
+        display: flex;
+        flex-direction: column;
+        
+        justify-content: center;
+        
+        background-color: #eeeeee;
+        box-shadow: $shadow-one;
+
+        &--heading{
+            margin: 0 auto;
+        }
+
+        &-1 {
+            display:grid;
+            grid-gap: 2rem;
+            padding: 2rem;
+            grid-template-columns: min-content repeat(3,max-content) min-content;
+            grid-template-rows: max-content min-content;
+
+            &-output{
+                grid-column: 2 / 5;
+                grid-row: 1 / 2;
+                justify-self: center;
+            }
+
+            &-pin {
+                height: 4rem;
+                width: auto;
+
+
+                &-left{
+                    grid-column: 1 /2;
+                    grid-row: 1 / 2;
+
+                }
+                &-right{
+                    grid-column: 5 / -1;
+                    grid-row: 1 / 2;
+                }
+            }
+            &--btn1{
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+
+            }
+            &--btn2{
+                grid-column: 3 / 4;
+                grid-row: 2 / 3;
+            }
+            &--btn3{
+                grid-column: 4 / 5;
+                grid-row: 2 / 3;
+            }
+
+        }
+        &-2 {
+            margin: 1rem auto;
+        }
+    }
+    
+    /************ Task Two **************/
+    &__two {
+       
+        grid-column: col-start 4 / col-start 6;
+        transform: translateY(-20rem);
+        &--arrow {
+            height: 7rem;
+            width: auto;
+        }
+    }
+    /************ Task Two **************/
+
+
+    /************ Task Three **************/
+    &__three{
+       display:grid;
+       grid-template-columns: max-content;
+
+       position: relative;
+
+       &--heading {
+            grid-column: 1 /2 ;
+            grid-row:  1 / 2;
+       }
+
+       &-right {
+            position: absolute;
+            top: 12rem;
+            left: 2rem;
+
+       }
+       &-left{
+            position: absolute;
+            top: 9rem;
+            left: 80rem;
+       }
+
+
+       &--dog {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            justify-self: center;
+            align-self: start;
+
+            transform: translateY(-15rem);
+            height: 40rem;
+            width: auto;
+       }
+       
+    }
+    /************ Task Three **************/
+}
+/************ Task One **************/
+.output {
+    height: 5rem;
+    width: 30rem;
+    font-size: 3rem;
+    border: 5px double $color-two;
+    text-align: center;
+    cursor: pointer;
+}
+/************ Task One **************/
+
+/************ Task Two **************/
+.menuBtn {
+    transform: translate(-5rem, -4rem);
+    box-shadow: $shadow-four;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    z-index: 100;
+    position: relative;
+    
+    &__img {
+        height: 3rem;
+        width: auto;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        transition: all .2s;
+        &--active{
+            transform: rotate(180deg);
+            transition: all .2s;
+        }
+
+    }    
+}
+
+.menuDrop {
+    display:grid;
+    grid-template-columns: min-content max-content;
+    grid-template-rows: repeat(3,max-content);
+    justify-items: center;
+    align-items: center;
+    grid-gap: 1rem;
+    position: absolute;
+    top: 0;
+    left:0;
+    transition: all .2s;
+    transform: translate(-12.5rem, 4rem) scale(.01);
+   
+    &__active{
+        transform: translate(-4.5rem, 16rem) scale(1);
+        transition: all .2s;
+    }
+
+    &__btn {
+        position: relative;
+        background-color: $color-two;
+        border-radius: 1rem;
+        box-shadow: $shadow-three;
+        cursor: pointer; 
+
+        &-1 {
+            &:hover + .menuDrop__content {
+                @include menuBtn;
+                            }
+        }
+        &-2{
+            &:hover + .menuDrop__content {
+                @include menuBtn;
+            }
+        }
+        &-3{
+            &:hover + .menuDrop__content {
+                @include menuBtn;
+            }
+        }
+    }
+
+    &__icon{
+        height: 3rem;
+        width: auto;
+        margin: .6rem;
+        opacity: 1;
+        transition: all .2s;
+        
+        &-blue {
+            position: absolute;
+            top:0;
+            left:0;
+
+        }
+        &:hover {
+            opacity: 0;
+            transition: all .2s;
+        }
+
+        
+    }
+    
+    &__content {
+        justify-self: start;
+        transition: all .2s;
+        opacity: 0;
+        visibility: hidden;
+        
+        &-link {
+            &:link,
+            &:visited {
+                color: $color-text;
+                text-decoration: none;
+            }
+        }
+        
+        &-dog{
+            &:hover + .menuDrop__content-human{
+                @include menuBtn;
+            }
+
+        }
+        &:hover {
+            @include menuBtn;
+        }
+    }
+}
+
+/************ Task Two **************/
+
+
+.table{
+    grid-column: 1 /2 ;
+    grid-row:  2 / 3;
+
+    box-shadow: $shadow-one;
+    margin: 5rem;
+    padding: 2rem;
+    font-size: 2rem;
+    background-color: #ececec;
+
+    &__input{
+        @include table;
+        align-items: center;
+        & input {
+            height: 3rem;
+            padding: .5rem;
+            &:not(:last-child) {
+                border: none;
+                box-shadow: $shadow-one;
+            }
+        }
+        &--btn{
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+
+
+            & span {
+                font-size: 1rem;
+                text-align: center;
+                transform: translateX(1.8rem);
+            }
+            
+        }
+    }
+
+    &__names{
+        @include table;
+        color: $color-two;
+        grid-gap: 0;
+    }
+
+
+    &__output{
+
+        &--item{
+            @include table;
+            grid-gap: 1rem;
+        }
+        
+        &--example{
+            border-bottom: 1px solid $color-one;
+            
+        }
+    }
+}

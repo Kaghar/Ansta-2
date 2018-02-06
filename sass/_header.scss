@@ -1,0 +1,91 @@
+.header {
+    grid-column: full-start / full-end;
+
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: max-content repeat(2, 1fr);
+    justify-items: end;
+    align-items: center;
+
+    &__dog {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+
+        padding-left: 10rem;
+        transform: translate(-1rem, -10rem);
+
+        display:grid;
+        justify-items: start;
+
+        &-h1{
+            @include translationBox;
+            
+
+            &:hover + .header__human-h1{
+                opacity:1;
+            }
+            &:hover {
+                opacity: 0;
+            }
+        }
+        
+        &-h2 {
+            @include translationBox;
+            grid-row: 2 / 3;
+            &:hover + .header__human-h2{
+                opacity:1;
+            }
+            &:hover {
+                opacity: 0;
+            }
+        }
+    }
+
+    &__human {
+        &-h1{
+            @include translatedBox;
+        }
+        
+        &-h2 {
+            @include translatedBox;
+            grid-row: 2 / 3;
+        }
+    }
+    &__bg {
+        grid-column: 2 / -1;
+
+        height: 80rem;
+        width: auto;
+        padding: 2rem 30rem 0 0;
+    }
+
+    &__btn {
+        padding: 3rem 0 0 3rem;
+        &:link,
+        &:visited {
+            text-decoration: none;
+            color: $color-two;
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        &-dog{
+            @include translationBox;
+            grid-row: 3 / 4;
+            width: 30rem;
+            &:hover + .header__btn-human{
+                opacity:1;
+            }
+            &:hover {
+                opacity: 0;
+            }
+        }
+
+        &-human{
+            @include translatedBox;
+            grid-row: 3 / 4;
+            width: 30rem;   
+        }
+    }
+}
